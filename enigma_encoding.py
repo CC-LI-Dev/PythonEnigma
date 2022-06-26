@@ -9,20 +9,13 @@ turn_count_EW3 = 0
 
 
 
-def process_of_encoding():
+def process_of_encoding(input_string):
     #vales for encoding of symbols and special characters 
     # " " = xaybzc ; "1" =  xdyezf; "2" =  xhyizj; "3" =  xkylzm; "4" =  xnyozp; "5" =  xqyrzs;
     #  "6" =  xtyuzv; "7" =  xwyxzy; "8" =  xzyaazbb; "9" =  xccyddzee; "0" =  xffyhhzii; "." = xjjykkzll; 
     # "?" = xmmynnzoo; "!" = xppyqqzrr; ":" = xssyttzuu; "," = xvvywwzxx; 
 
     symbols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", " ", ".", "?", "!", ":", ","]
-    
-
-    # get user input
-    tk.Label(mask, text="Encoded text:").grid(row=10)
-    output = tk.Entry(mask, width = 80)
-    output.grid(row=10, column=1)
-    input_string = (entry.get())
 
     # encoding of special characters
 
@@ -74,9 +67,7 @@ def process_of_encoding():
             arr.pop(symbolindex[ListLen])
             replace_symbols(symbol, symbolindex[ListLen])
             
-
-
-
+    # process of encoding
     def encoding_process():
         global turn_count_EW1
         global turn_count_EW2
@@ -138,20 +129,7 @@ def process_of_encoding():
     output_string = "".join(processing_list)
         
     # output
+    return output_string
     
-    output.insert(0, output_string)
 
-# graphical interface
-mask = tk.Tk()
-mask.geometry("650x250")
-mask.title("Encoding of Engima")
-tk.Label(mask, text="Enter text:").grid(row=0)
-entry = tk.Entry(mask, width = 80)
-entry.grid(row=0, column=1)
-
-
-tk.Button(mask, text="End", command=mask.quit).grid(row=250, column=0, sticky=tk.W, pady=20)
-tk.Button(mask, text="Encode", command=process_of_encoding).grid(row=8, column=0, sticky=tk.W, pady=20)
-
-mask.mainloop()
 
